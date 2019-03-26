@@ -15,9 +15,8 @@ import dev.voxelmine.engine.shaders.StaticShader;
 import dev.voxelmine.engine.toolbox.Maths;
 
 public class EntityRenderer {
-	private int blockNormalMap;
 	public EntityRenderer() {
-		blockNormalMap = Loader.getInstance().loadTexture("blocks/normalmap.png");
+		
 	}
 	public void render(Map<TexturedModel, List<Entity>> entities)
 	{
@@ -29,8 +28,6 @@ public class EntityRenderer {
 			
 			GL13.glActiveTexture(GL13.GL_TEXTURE0);
 			GL11.glBindTexture(GL11.GL_TEXTURE_2D, model.getTexture().getTextureID());
-			GL13.glActiveTexture(GL13.GL_TEXTURE1);
-			GL11.glBindTexture(GL11.GL_TEXTURE_2D, blockNormalMap);
 			
 			List<Entity> batch = entities.get(model);
 			for(Entity entity : batch) {
